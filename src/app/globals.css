@@ -3,6 +3,16 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-playfair: "Playfair Display", serif;
+  --font-figtree: "Figtree", sans-serif;
+}
+
+.font-playfair {
+  font-family: var(--font-playfair);
+}
+
+.font-figtree {
+  font-family: var(--font-figtree);
 }
 
 @theme inline {
