@@ -7,10 +7,7 @@ import ScreensDrawer from "@/shared/ScreensDrawer";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
-interface ProjectCardProps extends ProjectData {
-  openImageViewer: (screen: Screen) => void;
-  isImageViewerOpen: boolean;
-}
+interface ProjectCardProps extends ProjectData {}
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
   title,
@@ -19,8 +16,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   projectId,
   screens,
   link,
-  openImageViewer,
-  isImageViewerOpen,
 }) => {
   return (
     <div className="flex items-center pl-10" data-project={projectId}>
@@ -33,12 +28,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           </div>
 
           <div className="flex gap-2">
-            <ScreensDrawer
-              title={title}
-              screens={screens}
-              openImageViewer={openImageViewer}
-              isImageViewerOpen={isImageViewerOpen} // <- pass down
-            />
+            <ScreensDrawer title={title} screens={screens} />
             {Boolean(link) && (
               <Button
                 asChild
@@ -60,20 +50,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 };
 
 const Projects: React.FC = () => {
+  const [isImageViewerOpen, setIsImageViewerOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<
     { url: string; title: string } | undefined
   >();
-  const [isImageViewerOpen, setIsImageViewerOpen] = useState(false);
-
-  const openImageViewer = useCallback((screen: Screen) => {
-    setSelectedImage({ url: screen.url, title: screen.title });
-    setIsImageViewerOpen(true);
-  }, []);
-
-  const closeImageViewer = useCallback(() => {
-    setIsImageViewerOpen(false);
-    setTimeout(() => setSelectedImage(undefined), 150);
-  }, []);
 
   return (
     <div id="projects" className="flex flex-col items-center w-full">
@@ -83,20 +63,9 @@ const Projects: React.FC = () => {
 
       <div className="w-[80%] flex flex-col gap-30 pb-20">
         {projectsData.map((project, idx) => (
-          <ProjectCard
-            key={idx}
-            {...project}
-            openImageViewer={openImageViewer}
-            isImageViewerOpen={isImageViewerOpen} // <- pass down
-          />
+          <ProjectCard key={idx} {...project} />
         ))}
       </div>
-
-      <ImageViewer
-        imageData={selectedImage}
-        onClose={closeImageViewer}
-        isImageViewerOpen={isImageViewerOpen}
-      />
     </div>
   );
 };
