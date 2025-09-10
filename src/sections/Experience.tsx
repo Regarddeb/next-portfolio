@@ -13,13 +13,13 @@ const ExperienceItem: React.FC<ExperienceItemProps> = ({
   period,
   description,
 }) => (
-  <div className="flex w-[80%] items-center h-[30%] pl-10">
+  <div className="flex xl:w-[80%] items-center h-[30%] pl-3 md:pl-10">
     <div className="flex flex-col gap-3">
-      <p className="text-5xl font-semibold">{role}</p>
+      <p className="text-2xl md:text-4xl font-semibold">{role}</p>
       <div className="flex flex-col gap-2">
         <p>{company}</p>
         <p>{period}</p>
-        <div className="w-[80%] relative">
+        <div className="w-[95%] md:w-[80%] relative">
           <p>{description}</p>
         </div>
       </div>
@@ -53,7 +53,7 @@ const Experience: React.FC = () => {
   ];
 
   return (
-    <div className="flex flex-col items-center w-full" id="experience">
+    <div className="flex flex-col items-center w-full min-h-[100vh] mb-50" id="experience">
       <div className="w-[80%] mb-1">
         <Title title="experience" />
       </div>

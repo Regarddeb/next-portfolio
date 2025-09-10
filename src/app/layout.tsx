@@ -20,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-[100dvh]">
+    <html lang="en" className="h-[100dvh] w-[100%]">
       <body
         className={`${playfair.variable} ${figtree.variable} antialiased h-full font-figtree`}
       >

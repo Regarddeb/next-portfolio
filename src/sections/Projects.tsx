@@ -1,8 +1,6 @@
 "use client";
-import { useState, useCallback } from "react";
 import Title from "../shared/Title";
-import projectsData, { ProjectData, Screen } from "@/lib/projectsData";
-import ImageViewer from "@/shared/ImageViewer";
+import projectsData, { ProjectData } from "@/lib/projectsData";
 import ScreensDrawer from "@/shared/ScreensDrawer";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
@@ -18,12 +16,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   link,
 }) => {
   return (
-    <div className="flex items-center pl-10" data-project={projectId}>
+    <div className="flex items-center pl-3 md:pl-10" data-project={projectId}>
       <div className="flex flex-col gap-3">
-        <p className="text-4xl md:text-5xl font-semibold">{title}</p>
+        <p className="text-2xl md:text-4xl font-semibold">{title}</p>
         <div className="flex flex-col gap-5">
           <p className="text-lg">Affiliation: {affiliation}</p>
-          <div className="w-[80%] relative">
+          <div className="w-[95%] md:w-[80%] relative">
             <p className="leading-relaxed">{description}</p>
           </div>
 
@@ -50,11 +48,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 };
 
 const Projects: React.FC = () => {
-  const [isImageViewerOpen, setIsImageViewerOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState<
-    { url: string; title: string } | undefined
-  >();
-
   return (
     <div id="projects" className="flex flex-col items-center w-full">
       <div className="w-[80%] mb-2">

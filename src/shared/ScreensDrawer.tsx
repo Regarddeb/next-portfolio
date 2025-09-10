@@ -52,7 +52,7 @@ const ScreensDrawer: React.FC<ScreensDrawerProps> = ({ title, screens }) => {
               setSelectedImage(undefined);
             }}
           />
-          <ScrollArea className="w-full lg:h-[80vh] h-[100vh] mt-6">
+          <ScrollArea className="w-full lg:h-[80vh] h-[84vh] mt-6">
             <div className="relative">
               <div className="sticky top-0 z-0">
                 <Title size="text-8xl" title={title} />

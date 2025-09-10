@@ -14,6 +14,24 @@ export interface ProjectData {
 
 const projectsData: ProjectData[] = [
   {
+    title: "Place Finder AI",
+    affiliation: "Personal Project",
+    description: `🗺️ A place finder AI powered by Gemini and Foursquare. 
+        Converts natural language into prompt, then returns a list of places 
+        that matches the prompt.`,
+    projectId: "place-finder",
+    link: "https://place-finder-ui.vercel.app/",
+    screens: [
+      { url: "/place-finder/homepage.png", title: "Homepage" },
+      // {
+      //   url: "/place-finder/result-details-mobile.png",
+      //   title: "Results Details Mobile View",
+      // },
+      // { url: "/place-finder/results-mobile.png", title: "Results Mobile View" },
+      { url: "/place-finder/results.png", title: "Results" },
+    ],
+  },
+  {
     title: "Document Management System",
     affiliation: "Bicol Regional Hospital and Medical Center",
     description: `📂 An internal information system I developed for BRHMC,
@@ -76,24 +94,6 @@ const projectsData: ProjectData[] = [
       { url: "/msmis/prod-profile.png", title: "Product Page" },
       { url: "/msmis/msm-act-log.png", title: "Activity Logs" },
       { url: "/msmis/msm-login.png", title: "Login Page" },
-    ],
-  },
-  {
-    title: "Place Finder AI",
-    affiliation: "Personal Project",
-    description: `🗺️ A place finder AI powered by Gemini and Foursquare. 
-        Converts natural language into prompt, then returns a list of places 
-        that matches the prompt.`,
-    projectId: "place-finder",
-    link: "https://place-finder-ui.vercel.app/",
-    screens: [
-      { url: "/place-finder/homepage.png", title: "Homepage" },
-      // {
-      //   url: "/place-finder/result-details-mobile.png",
-      //   title: "Results Details Mobile View",
-      // },
-      // { url: "/place-finder/results-mobile.png", title: "Results Mobile View" },
-      { url: "/place-finder/results.png", title: "Results" },
     ],
   },
 ];
