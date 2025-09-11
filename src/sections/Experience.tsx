@@ -1,3 +1,5 @@
+"use client";
+import { motion } from "motion/react"
 import Title from "../shared/Title";
 
 interface ExperienceItemProps {
@@ -13,18 +15,23 @@ const ExperienceItem: React.FC<ExperienceItemProps> = ({
   period,
   description,
 }) => (
-  <div className="flex xl:w-[80%] items-center h-[30%] pl-3 md:pl-10">
+  <motion.div
+    className="flex xl:w-[80%] items-center h-[30%] pl-3 md:pl-10"
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8, ease: "easeOut" }}
+  >
     <div className="flex flex-col gap-3">
       <p className="text-2xl md:text-4xl font-semibold">{role}</p>
       <div className="flex flex-col gap-2">
         <p>{company}</p>
         <p>{period}</p>
-        <div className="w-[95%] md:w-[80%] relative">
-          <p>{description}</p>
+        <div className="w-[95%] lg:w-[80%] relative">
+          <p className="text-justify md:text-start">{description}</p>
         </div>
       </div>
     </div>
-  </div>
+  </motion.div>
 );
 
 const Experience: React.FC = () => {
@@ -53,16 +60,26 @@ const Experience: React.FC = () => {
   ];
 
   return (
-    <div className="flex flex-col items-center w-full min-h-[100vh] mb-50" id="experience">
-      <div className="w-[80%] mb-1">
+    <section
+      className="flex flex-col items-center w-full min-h-[100vh] mb-50 text-center md:text-start"
+      id="experience"
+    >
+      <motion.div
+        className="w-[80%] mb-1 sticky top-0 bg-white/80 backdrop-blur-sm z-1"
+        initial={{ opacity: 0, y: -30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true }}
+      >
         <Title title="experience" />
-      </div>
-      <div className="w-[80%] flex flex-col gap-30 pb-20">
+      </motion.div>
+
+      <div className="w-[80%] flex flex-col gap-30 pb-20 z-2">
         {experiences.map((exp, idx) => (
           <ExperienceItem key={idx} {...exp} />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -36,7 +36,7 @@ const TableOfContents: React.FC = () => {
 
   const renderItemWithIndicator = (text: string, isActive: boolean) => (
     <span className="flex items-center gap-2">
-      {isActive && <span className="text-blue-600">&gt;</span>}
+      {isActive && <span className="">&gt;</span>}
       <span>{text}</span>
     </span>
   );
@@ -44,10 +44,11 @@ const TableOfContents: React.FC = () => {
   const getItemClassName = (sectionId: string) => {
     return `cursor-pointer hover:text-blue-600 transition-colors ${
       activeSection === sectionId
-        ? "text-blue-600 font-semibold"
+        ? "font-semibold"
         : "text-gray-700"
     }`;
   };
+  
   return (
     <div className="xl:w-4/12 lg:w-3/12 hidden lg:flex flex-col gap-6 sticky top-20 px-4">
       <p className="text-xl">Table of contents</p>
