@@ -84,7 +84,7 @@ const TableOfContents: React.FC = () => {
             </p> */}
       </div>
       <div className="bg-white xl:w-[60%] text-gray-900 h-[350px] xl:h-[400px] p-2 rounded-lg flex flex-col items-center border justify-center gap-5">
-        <p className="text-center text-2xl flex flex-col font-light">
+        <p className="text-center text-lg flex flex-col font-light">
           <span>Let's create</span>
           <span>something together</span>
         </p>
