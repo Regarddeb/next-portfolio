@@ -130,3 +130,13 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Override NProgress bar thickness */
+#nprogress .bar {
+  height: 4px !important;
+}
+
+/* Optional: spinner (you can remove if not needed) */
+#nprogress .spinner {
+  display: none !important;
+}

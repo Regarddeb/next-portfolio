@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Figtree } from "next/font/google";
+import TopLoader from "@/shared/TopLoader";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -24,6 +25,7 @@ export default function RootLayout({
       <body
         className={`${playfair.variable} ${figtree.variable} antialiased h-full font-figtree`}
       >
+        <TopLoader />
         {children}
       </body>
     </html>
