@@ -8,7 +8,7 @@ import Header from "@/shared/Header";
 
 export default function Home() {
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto relative">
       <Header />
       <div className="flex items-start">
         <div className="flex flex-col gap-5 xl:w-8/12 lg:w-9/12">
