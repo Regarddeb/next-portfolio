@@ -43,12 +43,10 @@ const TableOfContents: React.FC = () => {
 
   const getItemClassName = (sectionId: string) => {
     return `cursor-pointer hover:text-blue-600 transition-colors ${
-      activeSection === sectionId
-        ? "font-semibold"
-        : "text-gray-700"
+      activeSection === sectionId ? "font-semibold" : "text-gray-700"
     }`;
   };
-  
+
   return (
     <div className="xl:w-4/12 lg:w-3/12 hidden lg:flex flex-col gap-6 sticky top-20 px-4">
       <p className="text-xl">Table of contents</p>
@@ -84,18 +82,23 @@ const TableOfContents: React.FC = () => {
               )}
             </p> */}
       </div>
-      <div className="bg-white xl:w-[60%] text-gray-900 h-[350px] xl:h-[400px] p-2 rounded-lg flex flex-col items-center border justify-center gap-5">
-        <p className="text-center text-lg flex flex-col font-light">
-          <span>Let's create</span>
-          <span>something together</span>
-        </p>
-        <Button
-          onClick={() => router.push("/contact")}
-          className="w-fit cursor-pointer"
-          size="lg"
-        >
-          Contact me
-        </Button>
+      <div className="relative xl:w-[60%] h-[350px] xl:h-[400px] rounded-lg overflow-hidden border flex flex-col items-center justify-center gap-5 text-white group transition-all duration-500">
+        <div className="absolute inset-0 bg-[url('/bg-contact.jpg')] bg-cover bg-center scale-100 group-hover:scale-105 transition-transform duration-700" />
+        <div className="absolute inset-0 bg-gray-800/50 group-hover:bg-gray-900/60 transition-colors duration-500" />
+        <div className="relative z-10 p-2 text-center text-lg font-light flex flex-col items-center">
+          <p className="text-2xl font-medium text-white text-center">
+            Let’s create
+            <br />
+            something together
+          </p>
+          <Button
+            onClick={() => router.push("/contact")}
+            className="w-fit mt-4 px-6 py-3 rounded-full cursor-pointer bg-black text-white hover:bg-white hover:text-black transition-all duration-300 shadow-md hover:shadow-xl"
+            size="lg"
+          >
+            Contact me
+          </Button>
+        </div>
       </div>
     </div>
   );
