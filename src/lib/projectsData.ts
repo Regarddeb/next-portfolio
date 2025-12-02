@@ -76,7 +76,7 @@ const projectsData: ProjectData[] = [
   {
     title: "Inventory System",
     affiliation: "Bicol Regional Hospital and Medical Center",
-    description: `🚚 An internal information system I developed for BRHMC to manage deliveries, 
+    description: `🚚 An internal information system developed for BRHMC to manage deliveries, 
         products, and inventory. It also generates key reports, including Inspection and Acceptance 
         Reports as well as Requisition and Issue Slips.`,
     projectId: "inventory-system",
