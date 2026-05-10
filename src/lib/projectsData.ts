@@ -13,24 +13,24 @@ export interface ProjectData {
 }
 
 const projectsData: ProjectData[] = [
-  {
-    title: "Place Finder AI",
-    affiliation: "Personal Project",
-    description: `🗺️ A place finder AI powered by Gemini and Foursquare. 
-        Converts natural language into prompt, then returns a list of places 
-        that matches the prompt.`,
-    projectId: "place-finder",
-    link: "https://place-finder-ui.vercel.app/",
-    screens: [
-      { url: "/place-finder/homepage.png", title: "Homepage" },
+  // {
+  //   title: "Place Finder AI",
+  //   affiliation: "Personal Project",
+  //   description: `🗺️ A place finder AI powered by Gemini and Foursquare. 
+  //       Converts natural language into prompt, then returns a list of places 
+  //       that matches the prompt.`,
+  //   projectId: "place-finder",
+  //   link: "https://place-finder-ui.vercel.app/",
+  //   screens: [
+  //     { url: "/place-finder/homepage.png", title: "Homepage" },
       // {
       //   url: "/place-finder/result-details-mobile.png",
       //   title: "Results Details Mobile View",
       // },
       // { url: "/place-finder/results-mobile.png", title: "Results Mobile View" },
-      { url: "/place-finder/results.png", title: "Results" },
-    ],
-  },
+  //     { url: "/place-finder/results.png", title: "Results" },
+  //   ],
+  // },
   {
     title: "Document Management System",
     affiliation: "Bicol Regional Hospital and Medical Center",
