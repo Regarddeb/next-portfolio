@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Figtree } from "next/font/google";
 import TopLoader from "@/shared/TopLoader";
+import { Analytics } from "@vercel/analytics/next"
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -21,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-[100dvh] w-[100%]">
+    <html lang="en" className="h-dvh w-full">
       <body
         className={`${playfair.variable} ${figtree.variable} antialiased h-full font-figtree`}
       >
