@@ -1,10 +1,13 @@
 "use client";
+
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { Loader2 } from "lucide-react";
 
 const TableOfContents: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>("whoami");
+  const [isNavigating, setIsNavigating] = useState<boolean>(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -32,6 +35,11 @@ const TableOfContents: React.FC = () => {
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
+  };
+
+  const handleContactClick = () => {
+    setIsNavigating(true);
+    router.push("/contact");
   };
 
   const renderItemWithIndicator = (text: string, isActive: boolean) => (
@@ -63,7 +71,7 @@ const TableOfContents: React.FC = () => {
         >
           {renderItemWithIndicator(
             "experience",
-            activeSection === "experience"
+            activeSection === "experience",
           )}
         </p>
         <p
@@ -72,31 +80,30 @@ const TableOfContents: React.FC = () => {
         >
           {renderItemWithIndicator("projects", activeSection === "projects")}
         </p>
-        {/* <p
-              className={getItemClassName("interactive-chat")}
-              onClick={() => scrollToSection("interactive-chat")}
-            >
-              {renderItemWithIndicator(
-                "interactive chat",
-                activeSection === "interactive-chat"
-              )}
-            </p> */}
       </div>
       <div className="relative xl:w-[60%] h-[350px] xl:h-[400px] rounded-lg overflow-hidden border flex flex-col items-center justify-center gap-5 text-white group transition-all duration-500">
         <div className="absolute inset-0 bg-[url('/bg-contact.jpg')] bg-cover bg-center scale-100 group-hover:scale-105 transition-transform duration-700" />
-        <div className="absolute inset-0 bg-gray-800/50 group-hover:bg-gray-900/60 transition-colors duration-500" />
+        <div className="absolute inset-0 bg-gray-900/80 group-hover:bg-gray-900/50 transition-colors duration-500" />
         <div className="relative z-10 p-2 text-center text-lg font-light flex flex-col items-center">
           <p className="text-2xl font-medium text-white text-center">
-            Let’s create
+            Let’s build
             <br />
             something together
           </p>
           <Button
-            onClick={() => router.push("/contact")}
-            className="w-fit mt-4 px-6 py-3 rounded-full cursor-pointer bg-black text-white hover:bg-white hover:text-black transition-all duration-300 shadow-md hover:shadow-xl"
+            onClick={handleContactClick}
+            disabled={isNavigating}
+            className="w-fit mt-4 px-6 py-3 rounded-full cursor-pointer bg-black text-white hover:bg-white hover:text-black transition-all duration-300 shadow-md hover:shadow-xl disabled:opacity-80"
             size="lg"
           >
-            Contact me
+            {isNavigating ? (
+              <span className="flex items-center gap-2">
+                <Loader2 className="h-4 w-4 animate-spin" />
+                Redirecting...
+              </span>
+            ) : (
+              "Contact me"
+            )}
           </Button>
         </div>
       </div>
