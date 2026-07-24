@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowLeft, File, Github, Linkedin, Loader2 } from "lucide-react";
+import { ArrowLeft, File, GitCompareArrows, Loader2, UserSearch } from "lucide-react";
 import { Input } from "@/components/ui/input";
 
 import Footer from "@/shared/Footer";
@@ -98,7 +98,7 @@ export default function Contact() {
               role="button"
               className="cursor-pointer p-3 border border-gray-400 rounded-lg flex justify-center items-center gap-3"
             >
-              <Linkedin size={15} />
+              <UserSearch size={15} />
               <p className="font-medium">Linkedin</p>
             </a>
             <a
@@ -118,7 +118,7 @@ export default function Contact() {
               role="button"
               className="cursor-pointer p-3 border border-gray-400 rounded-lg flex justify-center items-center gap-3"
             >
-              <Github size={15} />
+              <GitCompareArrows size={15} />
               <p className="font-medium">Github</p>
             </a>
           </div>
@@ -129,11 +129,11 @@ export default function Contact() {
           className="flex flex-col w-[90%] md:w-[60%] xl:w-[42%] gap-7 xl:p-3"
         >
           <div className="flex items-center">
-            <div className="flex-grow border-t border-gray-300"></div>
+            <div className="grow border-t border-gray-300"></div>
             <span className="mx-4 text-gray-500 text-sm">
               Or send me a message
             </span>
-            <div className="flex-grow border-t border-gray-300"></div>
+            <div className="grow border-t border-gray-300"></div>
           </div>
 
           {status.type && (
