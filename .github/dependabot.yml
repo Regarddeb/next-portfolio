@@ -7,6 +7,9 @@ updates:
       interval: "monthly"
       day: "monday"
       time: "06:00"
+    ignore:
+      - dependency-name: "typescript"
+        versions: ["7.x"]
     open-pull-requests-limit: 10
     labels:
       - "dependencies"
