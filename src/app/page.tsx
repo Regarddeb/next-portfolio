@@ -5,6 +5,7 @@ import Hero from "../sections/Hero";
 import Projects from "../sections/Projects";
 import Footer from "@/shared/Footer";
 import Header from "@/shared/Header";
+import { Analytics } from "@vercel/analytics/next";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         </div>
         <TableOfContents />
       </div>
+      <Analytics mode="development" />
       <Footer />
     </div>
   );
