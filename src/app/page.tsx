@@ -2,6 +2,7 @@
 import { Analytics } from "@vercel/analytics/next";
 
 import TableOfContents from "@/shared/TableOfContents";
+import ContactCTA from "@/shared/ContactCTA";
 import Experience from "../sections/Experience";
 import Hero from "../sections/Hero";
 import Projects from "../sections/Projects";
@@ -17,6 +18,9 @@ export default function Home() {
           <Hero />
           <Experience />
           <Projects />
+          <div className="w-[80%] mx-auto lg:hidden">
+            <ContactCTA />
+          </div>
         </div>
         <TableOfContents />
       </div>
