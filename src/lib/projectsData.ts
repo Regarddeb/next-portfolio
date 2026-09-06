@@ -10,9 +10,31 @@ export interface ProjectData {
   projectId: string;
   screens: Screen[];
   link?: string;
+  linkLabel?: string;
 }
 
 const projectsData: ProjectData[] = [
+  {
+    title: "Chess Puzzle Breaks",
+    affiliation: "Personal Project",
+    description: `♟️ A VS Code extension that lets you solve chess puzzles from the
+        Lichess puzzle dataset without leaving your editor. Features a native webview
+        board with click-or-drag moves, two-level hints, solve tracking, and offline
+        play after the puzzle database is cached on first launch.`,
+    projectId: "chess-puzzle-breaks",
+    link: "https://marketplace.visualstudio.com/items?itemName=HumphreyUno.chess-puzzle-breaks",
+    linkLabel: "View on Marketplace",
+    screens: [
+      {
+        url: "/chess-puzzle-breaks/puzzle-board.png",
+        title: "Puzzle Board",
+      },
+      {
+        url: "/chess-puzzle-breaks/marketplace-listing.png",
+        title: "Marketplace Listing",
+      },
+    ],
+  },
   // {
   //   title: "Place Finder AI",
   //   affiliation: "Personal Project",

@@ -5,6 +5,7 @@ import TableOfContents from "@/shared/TableOfContents";
 import ContactCTA from "@/shared/ContactCTA";
 import Experience from "../sections/Experience";
 import Hero from "../sections/Hero";
+import Skills from "../sections/Skills";
 import Projects from "../sections/Projects";
 import Footer from "@/shared/Footer";
 import Header from "@/shared/Header";
@@ -17,6 +18,7 @@ export default function Home() {
         <div className="flex flex-col gap-5 xl:w-8/12 lg:w-9/12">
           <Hero />
           <Experience />
+          <Skills />
           <Projects />
           <div className="w-[80%] mx-auto lg:hidden">
             <ContactCTA />

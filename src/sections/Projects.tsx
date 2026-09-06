@@ -16,6 +16,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   projectId,
   screens,
   link,
+  linkLabel,
 }) => {
   return (
     <motion.div
@@ -45,7 +46,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 className="cursor-pointer group"
               >
                 <a href={link} target="_blank" rel="noopener noreferrer">
-                  <span>Visit Live Site</span>
+                  <span>{linkLabel ?? "Visit Live Site"}</span>
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </a>
               </Button>

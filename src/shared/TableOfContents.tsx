@@ -8,7 +8,7 @@ const TableOfContents: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["whoami", "experience", "projects"];
+      const sections = ["whoami", "experience", "skills", "projects"];
       const scrollPosition = window.scrollY + 100;
 
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -64,6 +64,12 @@ const TableOfContents: React.FC = () => {
             "experience",
             activeSection === "experience",
           )}
+        </p>
+        <p
+          className={getItemClassName("skills")}
+          onClick={() => scrollToSection("skills")}
+        >
+          {renderItemWithIndicator("skills", activeSection === "skills")}
         </p>
         <p
           className={getItemClassName("projects")}
