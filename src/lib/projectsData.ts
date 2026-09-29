@@ -76,6 +76,8 @@ const projectsData: ProjectData[] = [
       { url: "/qmis/search.png", title: "File Search" },
       { url: "/qmis/view-doc.png", title: "Document Details" },
     ],
+    link: 'https://brhmc.doh.gov.ph/brhmc-apps/',
+    linkLabel: 'View in official BRHMC website'
   },
   {
     title: "IP Address Registry",

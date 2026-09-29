@@ -36,7 +36,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             </p>
           </div>
 
-          <div className="flex justify-center md:justify-normal gap-2">
+          <div className="flex justify-center flex-wrap md:justify-normal gap-2">
             <ScreensDrawer title={title} screens={screens} />
             {Boolean(link) && (
               <Button
