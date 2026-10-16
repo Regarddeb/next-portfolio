@@ -6,8 +6,11 @@ export interface Screen {
 export interface ProjectData {
   title: string;
   affiliation: string;
-  description: string;
+  summary: string;
+  highlights: string[];
+  stack: string[];
   projectId: string;
+  thumbnail: string;
   screens: Screen[];
   link?: string;
   linkLabel?: string;
@@ -15,13 +18,71 @@ export interface ProjectData {
 
 const projectsData: ProjectData[] = [
   {
+    title: "Document Management System",
+    affiliation: "Bicol Regional Hospital and Medical Center",
+    summary:
+      "A system I built from scratch to centralize the hospital's documents and reports and move teams toward a paperless workflow.",
+    highlights: [
+      "Centralized document access with version tracking, so staff always work from the latest copy",
+      "Role-based permissions controlling who can view and manage each document",
+      "File search and a built-in FAQ to help staff get started",
+    ],
+    stack: ["Laravel", "React", "MySQL"],
+    projectId: "document-management",
+    thumbnail: "/qmis/homepage.png",
+    screens: [
+      { url: "/qmis/homepage.png", title: "Homepage" },
+      { url: "/qmis/file-manager.png", title: "File Manager" },
+      { url: "/qmis/search.png", title: "File Search" },
+      { url: "/qmis/view-doc.png", title: "Document Details" },
+      { url: "/qmis/permissions.png", title: "Roles and Permissions" },
+      { url: "/qmis/faq.png", title: "FAQs" },
+      { url: "/qmis/login.png", title: "Login" },
+    ],
+    link: "https://brhmc.doh.gov.ph/brhmc-apps/",
+    linkLabel: "View on BRHMC website",
+  },
+  {
+    title: "Inventory System",
+    affiliation: "Bicol Regional Hospital and Medical Center",
+    summary:
+      "The hospital's system for deliveries, products, and stock, which I maintained, administered, and continued developing.",
+    highlights: [
+      "Migrated hundreds of thousands of records across systems while preserving data integrity",
+      "Improved report generation with user-customizable formatting and better-styled printed Inspection & Acceptance Reports and Requisition & Issue Slips",
+      "Dashboard and activity logs for stock visibility and accountability",
+    ],
+    stack: ["Laravel", "React", "MySQL"],
+    projectId: "inventory-system",
+    thumbnail: "/msmis/dashboard.png",
+    screens: [
+      { url: "/msmis/dashboard.png", title: "Dashboard" },
+      { url: "/msmis/iar-table.png", title: "Inspections List Table" },
+      { url: "/msmis/ins-profile.png", title: "Inspection Page" },
+      {
+        url: "/msmis/ins-prof-delivery.png",
+        title: "Inspection Delivery Details",
+      },
+      { url: "/msmis/po-items.png", title: "Purchase Order Items" },
+      { url: "/msmis/prod.png", title: "Products List Table" },
+      { url: "/msmis/prod-profile.png", title: "Product Page" },
+      { url: "/msmis/req-prof.png", title: "Requisition Page" },
+      { url: "/msmis/msm-act-log.png", title: "Activity Logs" },
+      { url: "/msmis/msm-login.png", title: "Login Page" },
+    ],
+  },
+  {
     title: "Chess Puzzle Breaks",
     affiliation: "Personal Project",
-    description: `♟️ A VS Code extension that lets you solve chess puzzles from the
-        Lichess puzzle dataset without leaving your editor. Features a native webview
-        board with click-or-drag moves, two-level hints, solve tracking, and offline
-        play after the puzzle database is cached on first launch.`,
+    summary:
+      "A VS Code extension for solving Lichess puzzles without leaving your editor, published on the Visual Studio Marketplace.",
+    highlights: [
+      "Native webview board with click-or-drag moves and two-level hints",
+      "Solve tracking and offline play once the puzzle database is cached on first launch",
+    ],
+    stack: ["TypeScript", "VS Code API"],
     projectId: "chess-puzzle-breaks",
+    thumbnail: "/chess-puzzle-breaks/puzzle-board.png",
     link: "https://marketplace.visualstudio.com/items?itemName=HumphreyUno.chess-puzzle-breaks",
     linkLabel: "View on Marketplace",
     screens: [
@@ -35,91 +96,31 @@ const projectsData: ProjectData[] = [
       },
     ],
   },
-  // {
-  //   title: "Place Finder AI",
-  //   affiliation: "Personal Project",
-  //   description: `🗺️ A place finder AI powered by Gemini and Foursquare. 
-  //       Converts natural language into prompt, then returns a list of places 
-  //       that matches the prompt.`,
-  //   projectId: "place-finder",
-  //   link: "https://place-finder-ui.vercel.app/",
-  //   screens: [
-  //     { url: "/place-finder/homepage.png", title: "Homepage" },
-      // {
-      //   url: "/place-finder/result-details-mobile.png",
-      //   title: "Results Details Mobile View",
-      // },
-      // { url: "/place-finder/results-mobile.png", title: "Results Mobile View" },
-  //     { url: "/place-finder/results.png", title: "Results" },
-  //   ],
-  // },
-  {
-    title: "Document Management System",
-    affiliation: "Bicol Regional Hospital and Medical Center",
-    description: `📂 An internal information system I developed for BRHMC,
-        designed to centralize documents and reports.
-        Its main goal is to create a paperless workflow,
-        reducing reliance on physical documents.`,
-    projectId: "document-management",
-    screens: [
-      { url: "/qmis/faq.png", title: "FAQs" },
-      // {
-      //   url: "/qmis/file-manager-mobile.png",
-      //   title: "File Manager Mobile View",
-      // },
-      { url: "/qmis/file-manager.png", title: "File Manager" },
-      // { url: "/qmis/homepage-mobile.png", title: "Homepage Mobile View" },
-      { url: "/qmis/homepage.png", title: "Homepage" },
-      { url: "/qmis/login.png", title: "Login" },
-      { url: "/qmis/permissions.png", title: "Roles and Permissions" },
-      // { url: "/qmis/search-mobile.png", title: "File Search Mobile View" },
-      { url: "/qmis/search.png", title: "File Search" },
-      { url: "/qmis/view-doc.png", title: "Document Details" },
-    ],
-    link: 'https://brhmc.doh.gov.ph/brhmc-apps/',
-    linkLabel: 'View in official BRHMC website'
-  },
   {
     title: "IP Address Registry",
     affiliation: "Bicol Regional Hospital and Medical Center",
-    description: `📶 An internal application I developed for managing IP address 
-        registrations and employee assignments, designed to support the hospital's network team.`,
+    summary:
+      "An internal tool that helps the hospital's network team manage IP address ranges and assign them to employees.",
+    highlights: [
+      "IP range creation, per-employee assignment, and a searchable records table",
+      "Configurable role permissions",
+    ],
+    stack: ["Laravel", "React", "MySQL"],
     projectId: "ipar",
+    thumbnail: "/ipar/ip-datatable.png",
     screens: [
+      { url: "/ipar/ip-datatable.png", title: "Records Datatable" },
       { url: "/ipar/ip-add-range.png", title: "Add IP Address Range" },
       { url: "/ipar/ip-add-user.png", title: "Add User" },
-      { url: "/ipar/ip-datatable.png", title: "Records Datatable" },
       { url: "/ipar/ip-edit-record.png", title: "Update Record" },
-      { url: "/ipar/ip-login.png", title: "Login Page" },
       {
         url: "/ipar/ip-role-permissions.png",
         title: "Update Role Permissions",
       },
+      { url: "/ipar/ip-login.png", title: "Login Page" },
     ],
   },
-  {
-    title: "Inventory System",
-    affiliation: "Bicol Regional Hospital and Medical Center",
-    description: `🚚 An internal information system developed for BRHMC to manage deliveries, 
-        products, and inventory. It also generates key reports, including Inspection and Acceptance 
-        Reports as well as Requisition and Issue Slips.`,
-    projectId: "inventory-system",
-    screens: [
-      { url: "/msmis/iar-table.png", title: "Inspections List Table" },
-      { url: "/msmis/po-items.png", title: "Purchase Order Items" },
-      { url: "/msmis/ins-profile.png", title: "Inspection Page" },
-      { url: "/msmis/dashboard.png", title: "Dashboard" },
-      {
-        url: "/msmis/ins-prof-delivery.png",
-        title: "Inspection Delivery Details",
-      },
-      { url: "/msmis/prod.png", title: "Products List Table" },
-      { url: "/msmis/req-prof.png", title: "Requisition Page" },
-      { url: "/msmis/prod-profile.png", title: "Product Page" },
-      { url: "/msmis/msm-act-log.png", title: "Activity Logs" },
-      { url: "/msmis/msm-login.png", title: "Login Page" },
-    ],
-  },
+  // Place Finder AI (Gemini + Foursquare) — screens in /public/place-finder
 ];
 
 export default projectsData;
