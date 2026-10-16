@@ -3,7 +3,6 @@ import { motion } from "motion/react";
 import { FileText, Mail } from "lucide-react";
 import Title from "../shared/Title";
 import Chip from "@/shared/Chip";
-import CursorGlow from "@/shared/CursorGlow";
 import Magnetic from "@/shared/Magnetic";
 import { GithubIcon, LinkedinIcon } from "@/shared/BrandIcons";
 import { Button } from "@/components/ui/button";
@@ -20,7 +19,6 @@ const Hero: React.FC = () => {
       id="whoami"
     >
       <div aria-hidden className="absolute inset-0 bg-dots" />
-      <CursorGlow />
 
       <motion.div
         className="relative w-[85%] md:w-[80%] flex flex-col items-start gap-6 py-24"
