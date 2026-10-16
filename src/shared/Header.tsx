@@ -1,15 +1,14 @@
 "use client";
-import { useRouter, usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
+import { Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Home, PhoneOutgoing } from "lucide-react";
+import ThemeToggle from "@/shared/ThemeToggle";
+import { scrollToSection } from "@/lib/sections";
 
 const Header: React.FC = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isAtTop, setIsAtTop] = useState(true);
-  const router = useRouter();
-  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,35 +19,40 @@ const Header: React.FC = () => {
       if (currentScrollY > lastScrollY && currentScrollY > 50) {
         setIsVisible(false);
       } else {
-        setIsVisible(true); 
+        setIsVisible(true);
       }
 
       setLastScrollY(currentScrollY);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
-  const handleClick = () => {
-    if (pathname === "/contact") {
-      router.push("/"); 
-    } else {
-      router.push("/contact");
-    }
-  };
-
   return (
-    <div
-      className={`lg:hidden w-full p-2 container mx-auto z-50 flex justify-between sticky top-0 bg-white border-b items-center transition-transform duration-300 ${
+    <header
+      className={`lg:hidden w-full px-4 py-2 z-50 flex justify-between sticky top-0 bg-background/85 backdrop-blur-md border-b items-center transition-transform duration-300 ${
         isVisible ? "translate-y-0" : "-translate-y-full"
       } ${isAtTop ? "" : "shadow-[0_2px_8px_rgba(0,0,0,0.06)]"}`}
     >
-      <p className="font-medium">Humphrey Uno</p>
-      <Button size="icon" onClick={handleClick}>
-        {pathname === "/contact" ? <Home /> : <PhoneOutgoing />}
-      </Button>
-    </div>
+      <button
+        type="button"
+        className="font-playfair font-semibold text-lg cursor-pointer"
+        onClick={() => scrollToSection("whoami")}
+      >
+        Humphrey Uno
+      </button>
+      <div className="flex items-center gap-1">
+        <ThemeToggle />
+        <Button
+          size="sm"
+          className="rounded-full cursor-pointer bg-highlight text-highlight-foreground hover:bg-highlight/85"
+          onClick={() => scrollToSection("contact")}
+        >
+          <Mail /> Contact
+        </Button>
+      </div>
+    </header>
   );
 };
 

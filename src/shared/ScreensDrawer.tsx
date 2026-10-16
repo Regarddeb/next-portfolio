@@ -7,7 +7,6 @@ import {
   SheetDescription,
   SheetHeader,
   SheetTitle,
-  SheetTrigger,
 } from "@/components/ui/sheet";
 import Image from "next/image";
 import Title from "./Title";
@@ -19,10 +18,16 @@ import "yet-another-react-lightbox/styles.css";
 interface ScreensDrawerProps {
   screens: Screen[];
   title: string;
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
 }
 
-const ScreensDrawer: React.FC<ScreensDrawerProps> = ({ title, screens }) => {
-  const [open, setOpen] = useState(false);
+const ScreensDrawer: React.FC<ScreensDrawerProps> = ({
+  title,
+  screens,
+  open,
+  onOpenChange,
+}) => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
 
@@ -38,12 +43,7 @@ const ScreensDrawer: React.FC<ScreensDrawerProps> = ({ title, screens }) => {
         plugins={[Zoom]}
       />
 
-      <Sheet open={open} onOpenChange={() => setOpen((prev) => !prev)}>
-        <SheetTrigger asChild>
-          <div className="inline-flex cursor-pointer items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-fit">
-            View Project
-          </div>
-        </SheetTrigger>
+      <Sheet open={open} onOpenChange={onOpenChange}>
 
         <SheetContent side="bottom" className="h-[93%]">
           <SheetHeader>
@@ -62,7 +62,8 @@ const ScreensDrawer: React.FC<ScreensDrawerProps> = ({ title, screens }) => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:w-[80%] mx-auto relative z-1">
                   {screens.map((screen, idx) => (
-                    <div
+                    <button
+                      type="button"
                       key={screen.title}
                       className="flex justify-center cursor-pointer"
                       onClick={() => {
@@ -84,7 +85,7 @@ const ScreensDrawer: React.FC<ScreensDrawerProps> = ({ title, screens }) => {
                           </h3>
                         </div>
                       </div>
-                    </div>
+                    </button>
                   ))}
                 </div>
               </div>
