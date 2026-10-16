@@ -1,33 +1,38 @@
 "use client";
 import { Analytics } from "@vercel/analytics/next";
+import { MotionConfig } from "motion/react";
 
 import TableOfContents from "@/shared/TableOfContents";
-import ContactCTA from "@/shared/ContactCTA";
-import Experience from "../sections/Experience";
+import ScrollProgress from "@/shared/ScrollProgress";
 import Hero from "../sections/Hero";
-import Skills from "../sections/Skills";
+import Experience from "../sections/Experience";
 import Projects from "../sections/Projects";
+import Skills from "../sections/Skills";
+import Education from "../sections/Education";
+import Contact from "../sections/Contact";
 import Footer from "@/shared/Footer";
 import Header from "@/shared/Header";
 
 export default function Home() {
   return (
-    <div className="container mx-auto relative">
+    <MotionConfig reducedMotion="user">
+      <ScrollProgress />
       <Header />
-      <div className="flex items-start">
-        <div className="flex flex-col gap-5 xl:w-8/12 lg:w-9/12">
-          <Hero />
-          <Experience />
-          <Skills />
-          <Projects />
-          <div className="w-[80%] mx-auto lg:hidden">
-            <ContactCTA />
-          </div>
+      <div className="container mx-auto relative">
+        <div className="flex items-start">
+          <main className="flex flex-col xl:w-8/12 lg:w-9/12 w-full">
+            <Hero />
+            <Experience />
+            <Projects />
+            <Skills />
+            <Education />
+            <Contact />
+          </main>
+          <TableOfContents />
         </div>
-        <TableOfContents />
+        <Analytics />
+        <Footer />
       </div>
-      <Analytics />
-      <Footer />
-    </div>
+    </MotionConfig>
   );
 }
