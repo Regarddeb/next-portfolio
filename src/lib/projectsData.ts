@@ -72,6 +72,30 @@ const projectsData: ProjectData[] = [
     ],
   },
   {
+    title: "PH Dev Job Market Radar",
+    affiliation: "Personal Project",
+    summary:
+      "A dashboard tracking the remote developer job market from the Philippines: which skills are in demand, what roles pay in pesos, and which roles accept PH-based applicants.",
+    highlights: [
+      "Daily Python scraper on GitHub Actions that pulls from Remote OK, Hacker News, and Jobicy, then dedupes postings and aggregates daily stats",
+      "Rule-based processing for skill extraction, salary normalization with ECB exchange rates, and PH eligibility",
+      "Next.js dashboard on Vercel reading from Neon Postgres through a read-only role, with a status page for crawl health and database size",
+    ],
+    stack: ["Next.js", "Python", "PostgreSQL", "Prisma", "GitHub Actions"],
+    projectId: "job-radar",
+    thumbnail: "/job-radar/overview.png",
+    link: 'https://ph-dev-job-market-radar.vercel.app/',
+    screens: [
+      { url: "/job-radar/overview.png", title: "Overview" },
+      { url: "/job-radar/postings.png", title: "Postings" },
+      { url: "/job-radar/ph-friendly.png", title: "PH-friendly Roles" },
+      { url: "/job-radar/skills.png", title: "Skills in Demand" },
+      { url: "/job-radar/salaries.png", title: "Salaries" },
+      { url: "/job-radar/status.png", title: "Crawl Status" },
+      { url: "/job-radar/doc.png", title: "How It Works" },
+    ],
+  },
+  {
     title: "Chess Puzzle Breaks",
     affiliation: "Personal Project",
     summary:
